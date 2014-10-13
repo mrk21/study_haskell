@@ -10,11 +10,11 @@ prodVM (V a1 a2) (M b11 b12
                     b21 b22) = (V (innerProd (V a1 a2) (V b11 b21))
                                   (innerProd (V a1 a2) (V b12 b22)))
 
-showV :: Vector -> String
-showV (V a1 a2) = "("++ (show a1) ++", "++ (show a2) ++")"
+instance Show Vector where
+    show (V a1 a2) = "("++ (show a1) ++", "++ (show a2) ++")"
 
 main :: IO ()
 main = do
     print $ innerProd (V 4.0 2.0) (V 1.0 2.0)
-    print $ showV $ prodVM (V 4.0 2.0) (M 2.0 3.0
-                                          7.0 2.0)
+    print $ prodVM (V 4.0 2.0) (M 2.0 3.0
+                                  7.0 2.0)
